@@ -1,0 +1,70 @@
+.book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fdf6f0;
+  font-family: "Georgia", serif;
+  padding: 2rem;
+  position: relative;
+}
+
+.page {
+  width: 40%;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: white;
+  margin: 1rem;
+  border-radius: 10px;
+  height: 75vh;
+  overflow-y: auto;
+}
+
+.page.left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.page.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page.right img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.nav-buttons {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: "Georgia", serif;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ded0c4;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

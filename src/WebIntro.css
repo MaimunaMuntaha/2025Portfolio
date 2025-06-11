@@ -1,0 +1,84 @@
+.web-intro {
+  height: 100vh;
+  background-color: #f9f3ec;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Georgia", serif;
+  padding: 2rem;
+  animation: fadeIn 1.2s ease-in;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  animation: zoomIn 1s ease-in-out;
+}
+
+.web p {
+  font-size: 1.2rem;
+  margin: 0.3rem;
+  opacity: 0;
+  animation: slideFadeIn 1s ease forwards;
+}
+
+.web p:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.web p:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.web p:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.web p:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.web p:nth-child(5) {
+  animation-delay: 1.5s;
+}
+.web p:nth-child(6) {
+  animation-delay: 1.8s;
+}
+.web p:nth-child(7) {
+  animation-delay: 2.1s;
+}
+.web p:nth-child(8) {
+  animation-delay: 2.4s;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: #ffffff;
+    opacity: 0;
+  }
+  to {
+    background-color: #f9f3ec;
+    opacity: 1;
+  }
+}
