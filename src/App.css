@@ -12,6 +12,14 @@ html,
   text-align: center;
   padding: 2rem;
 }
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* push it behind everything */
+}
 
 .App-logo {
   height: 80px;
@@ -23,15 +31,44 @@ html,
   max-width: 1800px;
   margin: auto;
 }
+.enter-book-link {
+  cursor: pointer;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-family: "Luckiest Guy", cursive;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-.bubble-text {
-  font-family: "Fredoka", sans-serif;
-  font-size: 5rem;
-  font-weight: 700;
-  color: #2c80aa;
-  text-shadow: 2px 2px 0 #00bfff, 4px 4px 0 #87cefa,
-    6px 6px 5px rgba(0, 0, 0, 0.2);
-  margin: 1rem 0;
+.enter-book-link:hover {
+  transform: scale(1.05);
+}
+.intro-container {
+  position: relative;
+  width: 100%;
+  height: 400px; /* adjust as needed */
+  margin: 0 auto;
+}
+
+.post-it {
+  position: absolute;
+  padding: 1rem;
+  max-width: 40%;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  transform: rotate(-3deg);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 .cutout-container {
@@ -40,12 +77,12 @@ html,
 
 .cutout-letter {
   display: inline-block;
-  padding: 1rem 1rem;
+  padding: 1.2rem 1rem;
   margin: 0 0.05rem;
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: white;
-  text-shadow: 1.4px 1.4px 1.4px black;
+  text-shadow: 4px 2px 2px black;
   border-radius: 3px;
   transform: rotate(var(--angle, 0deg));
 }
@@ -72,37 +109,222 @@ html,
 .font-6 {
   font-family: "Shrikhand", cursive;
 }
+.intro-container {
+  position: relative;
+  width: 400px; /* adjust as needed */
+  height: 400px; /* adjust as needed */
+  margin: 0 auto; /* center in header */
+}
+/* Add these to your CSS */
+.intro-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-it {
+  position: absolute;
+  padding: 2rem; /* Increased padding */
+  width: 300px; /* Fixed larger width */
+  min-height: 200px; /* Minimum height */
+  box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+  border-radius: 12px; /* Slightly larger radius */
+  transform: rotate(-3deg);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+/* Resume Section Styles */
+.resume-section {
+  width: 100%;
+  padding: 3rem 2rem;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #2c80aa;
+  margin-bottom: 2rem;
+  font-family: "Fredoka", sans-serif;
+}
+
+.resume-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resume-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background-color: #007acc;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.download-button:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styles */
+.site-footer {
+  background-color: #2c80aa;
+  color: white;
+  padding: 2rem 0;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.copyright {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.social-links a:hover {
+  color: #a8e6cf;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .resume-section {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+.bio-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bubble-text {
+    font-size: 3rem;
+    padding: 20%;
+  }
+
+  .bio-line {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bubble-text {
+    font-size: 2rem;
+    padding: 20%;
+  }
+
+  .bio-line {
+    font-size: 1.2rem;
+  }
+}
+.intro-container .bubble-text {
+  position: absolute;
+  padding: 20%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.role-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  opacity: 0;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
 /* Backgrounds */
 .bg-0 {
-  background-color: #ff4fc2;
+  background-color: #2d0b21;
 }
 .bg-1 {
-  background-color: #ff914d;
+  background-color: #8f3c09;
 }
 .bg-2 {
-  background-color: #42d9c8;
+  background-color: #0e3732;
 }
 .bg-3 {
-  background-color: #ffe156;
+  background-color: #4a3f0c;
 }
 .bg-4 {
-  background-color: #a259ff;
+  background-color: #332545;
 }
 .bg-5 {
-  background-color: #f94f6d;
+  background-color: #431820;
 }
 .bg-6 {
-  background-color: #7ed957;
+  background-color: #264618;
 }
 
 .bio-line {
   font-size: 2rem;
   padding: 10px;
   margin: 1rem auto;
-  max-width: 1000px;
-  opacity: 0;
-  animation: fadeIn 2s ease-in forwards;
+  max-width: 100%;
+  height: auto; /* Let it grow with content */
+  margin: 2rem 0; /* Remove auto margins */
+  padding: 2rem 0; /* Add some vertical padding */
 }
 .cutout-container {
   margin: 1rem 0;
@@ -264,26 +486,42 @@ html,
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  size: 10%;
   padding-right: 1rem;
   z-index: 999;
 }
 
+.book-body p {
+  font-size: 2rem;
+}
 .tab-btn {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   background-color: #ff4fc2;
   color: white;
   font-weight: bold;
-  padding: 0.5rem 1rem;
+  padding: 2rem 1rem;
+  font-size: 1.5rem;
   border: none;
   border-radius: 10px 10px 0 0;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-family: "Luckiest Guy", cursive; /* Add fun font */
+  letter-spacing: 1px; /* Add some letter spacing */
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); /* Add text shadow for depth */
 }
 
 .tab-btn.active {
   background-color: #00bfff;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2); /* More pronounced shadow when active */
+  transform: rotate(180deg) scale(1.05); /* Slight scale increase when active */
+}
+
+/* Add hover effects */
+.tab-btn:hover {
+  transform: rotate(180deg) scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .book-page {
@@ -483,6 +721,291 @@ html,
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+/* GLOBALS */
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  background-color: #d6f0ff;
+  font-family: "Inter", sans-serif;
+  color: black;
+}
+.App {
+  text-align: center;
+}
+
+/* PARTICLES */
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* 1) HERO SECTION */
+.hero-section {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+}
+.hero-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Fredoka", sans-serif;
+  font-size: 5rem;
+  color: white;
+  text-shadow: 2px 2px 0 #93b7c3, 4px 4px 0 #87cefa;
+}
+
+/* 2) INTRO SECTION */
+.intro-section {
+  position: relative;
+  width: 100%;
+  min-height: 500px; /* Give enough space for post-its */
+  margin-bottom: 0; /* Remove default margin */
+}
+
+.bubble-text {
+  font-family: "Fredoka", sans-serif;
+  font-size: 5rem; /* Adjust as needed */
+  font-weight: 700;
+  color: #2c80aa;
+  text-shadow: 2px 2px 0 #00bfff, 4px 4px 0 #87cefa,
+    6px 6px 5px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  width: 100%;
+  text-align: center;
+  padding: 0 2rem; /* Add some horizontal padding */
+}
+/* Instruction overlay styles */
+.book-instruction {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.book-instruction p {
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  padding: 0 2rem;
+}
+
+.book-instruction button {
+  padding: 1rem 2rem;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+/* Add these styles */
+.bio-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.bio-line {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.bio-line:nth-of-type(1) {
+  animation-delay: 7s;
+}
+.bio-line:nth-of-type(2) {
+  animation-delay: 10s;
+}
+.bio-line:nth-of-type(3) {
+  animation-delay: 13s;
+}
+
+.book-section {
+  margin-top: 2rem;
+  padding: 0 2rem;
+}
+
+/* Adjust the intro section to remove bottom margin */
+.intro-section {
+  margin-bottom: 0;
+}
+
+/* Ensure post-its don't overlap with bio */
+.post-it-container {
+  min-height: 400px; /* Adjust based on your needs */
+  margin-bottom: 0;
+}
+.book-instruction button:hover {
+  background-color: #008fcc;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.cutout-letter {
+  display: inline-block;
+  padding: 0.5rem;
+  margin: 0 0.05rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  text-shadow: 1px 1px black;
+  border-radius: 3px;
+}
+/* random cutout fonts & backgrounds */
+.font-0 {
+  font-family: "Rubik Mono One";
+}
+.font-1 {
+  font-family: "Staatliches";
+}
+.font-2 {
+  font-family: "Luckiest Guy";
+}
+.font-3 {
+  font-family: "Anton";
+}
+.font-4 {
+  font-family: "Pacifico";
+}
+.font-5 {
+  font-family: "Press Start 2P";
+}
+.font-6 {
+  font-family: "Shrikhand";
+}
+.bg-0 {
+  background-color: #ff4fc2;
+}
+.bg-1 {
+  background-color: #ff914d;
+}
+.bg-2 {
+  background-color: #42d9c8;
+}
+.bg-3 {
+  background-color: #ffe156;
+}
+.bg-4 {
+  background-color: #a259ff;
+}
+.bg-5 {
+  background-color: #f94f6d;
+}
+.bg-6 {
+  background-color: #7ed957;
+}
+.bio-line {
+  font-size: 1.2rem;
+  margin: 0.5rem auto;
+  max-width: 800px;
+}
+
+/* 3) BOOK SECTION */
+.book-section {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 1200px;
+}
+.tab-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.tab-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #ff4fc2;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+.tab-btn.active {
+  background: #00bfff;
+}
+.book-body {
+  display: flex;
+  margin-top: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.projects-layout {
+  display: flex;
+  width: 100%;
+}
+.project-left,
+.project-right {
+  flex: 1;
+  padding: 1rem;
+  background: #eef6ff;
+  position: relative;
+  overflow-y: auto;
+}
+.project-img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+.page-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.page-controls button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background: #007acc;
+  color: white;
+  cursor: pointer;
+}
+.page-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .page-controls button:hover {

@@ -1,46 +1,111 @@
 .book {
+  width: 80%;
+  height: 70vh;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  perspective: 1000px;
+  position: relative;
+}
+.book-body {
+  width: 80vw;
+  height: 70vh;
+  display: flex;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.projects-layout,
+.book-body-full {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.project-left,
+.project-right,
+.book-body-full > div {
+  width: 80%;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.tab-buttons {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.tab-btn {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  background: hotpink;
+  color: white;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.tab-btn.active {
+  background: deeppink;
+}
+
+.project-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.book-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #fdf6f0;
-  font-family: "Georgia", serif;
-  padding: 2rem;
+  height: 80vh; /* Space to breathe */
   position: relative;
 }
 
 .page {
-  width: 40%;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background: white;
-  margin: 1rem;
-  border-radius: 10px;
-  height: 75vh;
+  width: 48%;
+  height: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #ccc;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .page.left {
-  animation: slideInLeft 0.6s ease-out;
-}
-
-.page.right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-right: none;
 }
 
 .page.right img {
   max-width: 100%;
   max-height: 100%;
-  border-radius: 10px;
+  object-fit: contain;
 }
 
 .nav-buttons {
   position: absolute;
-  bottom: 2rem;
+  bottom: -3rem;
+  width: 100%;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
 
 button {
