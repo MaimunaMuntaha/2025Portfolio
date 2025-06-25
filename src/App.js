@@ -361,6 +361,10 @@ export default function App() {
       </section>
 
       {/* INTRO + POST-ITS */}
+      <h1 className="bubble-text">
+        THIS IS MY OLD PORTFOLIO. ACCESS MY NEW ONE:
+        https://maimunamuntahaportfolio.netlify.app/
+      </h1>
       {showIntro && (
         <section className="intro-section">
           <div className="intro-content">
@@ -368,7 +372,6 @@ export default function App() {
               THIS IS MY OLD PORTFOLIO. ACCESS MY NEW ONE:
               https://maimunamuntahaportfolio.netlify.app/
             </h1>
-            <h1 className="bubble-text">I pride myself on being many things</h1>
             <div className="post-it-container">
               {visibleRoles.map((role, i) => (
                 <div
